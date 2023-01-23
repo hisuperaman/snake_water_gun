@@ -37,6 +37,19 @@ function next_page()
     {
         document.getElementById("round_err").innerHTML = "";
         document.getElementById("game").style.display = "block";
+        document.getElementById("intro").style.display = "none";
+    }
+}
+
+function choice_name(n)
+{
+    const names = ["snake", "water", "gun"];
+    for(i=0; i<3; i++)
+    {
+        if((names[i]).slice(0, 1)==n)
+        {
+            return names[i];
+        }
     }
 }
 
@@ -49,12 +62,12 @@ function the_game(usr_ch)
 
     if(usr_ch==cpu_ch)
     {
-        document.getElementById("same_sel").innerHTML = "No one get point";
+        document.getElementById("dis_sel").innerHTML = "No one get point";
     }
 
     else
     {
-        document.getElementById("same_sel").innerHTML = "";
+        document.getElementById("dis_sel").innerHTML = "";
         if(usr_ch=='s')
         {
             if(cpu_ch=='w')
@@ -91,8 +104,8 @@ function the_game(usr_ch)
     }
 
     document.getElementById("selections").style.display = "block";
-    document.getElementById("dis_usr_sel").innerHTML = usr_ch;
-    document.getElementById("dis_cpu_sel").innerHTML = cpu_ch;
+    document.getElementById("dis_usr_sel").innerHTML = choice_name(usr_ch);
+    document.getElementById("dis_cpu_sel").innerHTML = choice_name(cpu_ch);
     document.getElementById("dis_usr").innerHTML = usr;
     document.getElementById("dis_cpu").innerHTML = cpu;
     
